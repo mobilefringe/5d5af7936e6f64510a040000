@@ -213,7 +213,7 @@
         </section>
     </div>
     
-    <section class="yield">
+    <section class="">
         {{yield}}
     </section>
 
