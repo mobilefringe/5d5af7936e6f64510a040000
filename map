@@ -1,4 +1,3 @@
-<link href="http://mallmaverick.codecloudapp.com/mf_map.css" rel="stylesheet">
 <script type="text/javascript" src="//mallmaverick.cdn.speedyrails.net/javascripts/mapsvg/jquery.js"></script>
 <script type="text/javascript" src="//mallmaverick.cdn.speedyrails.net/javascripts/mapsvg/raphael.js"></script>
 <script type="text/javascript" src="//mallmaverick.cdn.speedyrails.net/javascripts/mapsvg/jquery.mousewheel.js"></script>
@@ -32,182 +31,22 @@
 <div class="content_container main_container mobile_padding">
     <div class="margin_25_across">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-8">
                 <div class="map">
-                    <div class="mf-map">
-                        <clip-loader :loading="loading" color="black" size="128px"></clip-loader>
-                        <div id="svgLayer"></div>
-                        <svg class="hidden">
-                    			<defs>
-                            <symbol id="icon-cross" viewBox="0 0 24 24">
-                    					<title>cross</title>
-                    					<path class="path1" d="M18.016 5.125q0.369 0 0.614 0.245t0.245 0.614q0 0.363-0.248 0.611l-5.411 5.405 5.411 5.405q0.248 0.248 0.248 0.611 0 0.369-0.245 0.614t-0.614 0.245q-0.363 0-0.611-0.248l-5.405-5.411-5.405 5.411q-0.248 0.248-0.611 0.248-0.369 0-0.614-0.245t-0.245-0.614q0-0.363 0.248-0.611l5.411-5.405-5.411-5.405q-0.248-0.248-0.248-0.611 0-0.369 0.245-0.614t0.614-0.245q0.363 0 0.611 0.248l5.405 5.411 5.405-5.411q0.248-0.248 0.611-0.248z"></path>
-                    				</symbol>
-                    				<symbol id="icon-stack" viewBox="0 0 32 32">
-                    					<title>stack</title>
-                    					<path class="path1" d="M29.143 11.071l-13.143-6.571-13.143 6.571 13.143 6.571 13.143-6.571zM16 6.681l8.781 4.39-8.781 4.39-8.781-4.39 8.781-4.39zM26.51 14.684l2.633 1.316-13.143 6.571-13.143-6.571 2.633-1.316 10.51 5.255zM26.51 19.612l2.633 1.316-13.143 6.571-13.143-6.571 2.633-1.316 10.51 5.255z"></path>
-                    				</symbol>
-                            <symbol id="icon-escalator" viewBox="0 -71 479.85846 479">
-                              <path d="m416 16.429688h-96.441406c-6.964844-.019532-13.648438 2.75-18.558594 7.6875l-80.359375 80.359374c-7.589844-17.324218-26.273437-26.96875-44.792969-23.113281-18.515625 3.855469-31.804687 20.152344-31.847656 39.066407v60.695312l-24.304688 24.304688c-1.921874 1.921874-4.535156 3.003906-7.253906 3h-48.441406c-35.347656 0-64 28.652343-64 64 0 35.347656 28.652344 64 64 64h152c2.0625 0 4.046875-.796876 5.535156-2.222657l197.863282-189.953125c34.570312-1.894531 61.359374-30.957031 60.4375-65.566406-.921876-34.609375-29.214844-62.203125-63.835938-62.257812zm-256 104c-.011719-12.65625 9.808594-23.148438 22.441406-23.96875 12.628906-.824219 23.726563 8.304687 25.359375 20.855468l-47.800781 47.800782zm52.800781 200h-24.914062l183.3125-176h24.898437zm203.199219-192h-48c-2.0625 0-4.046875.796874-5.535156 2.222656l-197.664063 189.777344h-100.800781c-26.507812 0-48-21.492188-48-48 0-26.511719 21.492188-48 48-48h48.441406c6.964844.019531 13.648438-2.75 18.558594-7.6875l90.65625-90.65625 90.640625-90.648438c1.925781-1.929688 4.539063-3.011719 7.261719-3.007812h96.441406c26.507812 0 48 21.488281 48 48 0 26.507812-21.492188 48-48 48zm0 0"/>
-                              <path d="m432 208.429688h-48v16h28.6875l-98.34375 98.34375 11.3125 11.3125 98.34375-98.34375v28.6875h16v-48c0-4.417969-3.582031-8-8-8zm0 0"/>
-                              <path d="m184 64.429688c17.671875 0 32-14.328126 32-32 0-17.671876-14.328125-32-32-32s-32 14.328124-32 32c0 17.671874 14.328125 32 32 32zm0-48c8.835938 0 16 7.164062 16 16 0 8.835937-7.164062 16-16 16s-16-7.164063-16-16c0-8.835938 7.164062-16 16-16zm0 0"/>
-                            </symbol>
-                            <symbol id="icon-elevator" viewBox="0 0 508 508">
-                              <path d="M493.9,0H14.1C6.3,0,0,6.3,0,14.1v479.8c0,7.8,6.3,14.1,14.1,14.1h479.8c7.8,0,14.1-6.3,14.1-14.1V14.1
-                                C508,6.3,501.7,0,493.9,0z M239.9,479.8H28.2V28.2h211.7V479.8z M479.8,479.8H268.1V28.2h211.7V479.8z"/>
-                              <path d="M192.4,268.3c-5.5-5.5-14.4-5.5-20,0l-24.2,24.2V181.4c0-7.8-6.3-14.1-14.1-14.1c-7.8,0-14.1,6.3-14.1,14.1v111.2
-                                l-24.2-24.2c-5.5-5.5-14.4-5.5-20,0c-5.5,5.5-5.5,14.4,0,20l48.3,48.2c2.8,2.8,6.4,4.1,10,4.1c3.6,0,7.2-1.4,10-4.1l48.3-48.3
-                                C197.9,282.8,197.9,273.9,192.4,268.3z"/>
-                              <path d="M432.3,219.6L384,171.3c-2.8-2.8-6.4-4.1-10-4.1c-3.6,0-7.2,1.4-10,4.1l-48.3,48.3c-5.5,5.5-5.5,14.4,0,20
-                                c5.5,5.5,14.4,5.5,20,0l24.2-24.2v111.2c0,7.8,6.3,14.1,14.1,14.1c7.8,0,14.1-6.3,14.1-14.1V215.4l24.2,24.2
-                                c5.5,5.5,14.4,5.5,20,0C437.8,234.1,437.8,225.2,432.3,219.6z"/>
-                            </symbol>
-                            <symbol id="icon-washroom" viewBox="0 0 512 512">
-                              <path d="M146.645,109.31c-54.918,0-55.673,0-101.357,0c-24.466,0-44.468,19.904-44.591,44.367L0,292.109
-                                c-0.052,10.407,8.342,18.885,18.747,18.938c0.032,0,0.065,0,0.098,0c10.363,0,18.787-8.375,18.841-18.747l0.696-138.432
-                                c0-0.016,0-0.031,0-0.047c0.024-2.055,1.704-3.706,3.759-3.694c2.055,0.012,3.715,1.683,3.715,3.738l0.008,316.757
-                                c0,12.488,10.124,22.612,22.612,22.612s22.612-10.124,22.612-22.612V289.888h9.763v180.734c0,12.488,10.123,22.611,22.611,22.611
-                                s22.611-10.123,22.611-22.611c0-298.894-0.4-127.966-0.41-316.481c0-2.121,1.674-3.863,3.794-3.946
-                                c2.12-0.083,3.928,1.521,4.092,3.635c0,0.001,0,0.002,0,0.002l-0.128,138.354c-0.01,10.406,8.419,18.851,18.825,18.861
-                                c0.007,0,0.011,0,0.018,0c10.397,0,18.833-8.426,18.842-18.825l0.128-138.431c0.002-0.039,0.002-0.075,0.001-0.114
-                                C191.112,129.214,171.109,109.31,146.645,109.31z"/>
-                              <circle cx="95.966" cy="57.813" r="39.047"/>
-                              <path d="M510.941,262.849c-0.346-0.986-34.611-98.717-40.002-114.406c-8.679-25.253-23.23-38.057-43.249-38.057
-                                c-28.025,0-37.18,0-65.153,0c-20.02,0-34.571,12.805-43.249,38.057c-5.391,15.688-39.656,113.421-40.002,114.406
-                                c-3.418,9.748,1.714,20.423,11.464,23.841c9.758,3.42,20.425-1.725,23.84-11.462c1.106-3.154,21.721-60.433,33.222-93.389
-                                c-1.204,9.838,2.264-10.578-26.737,139.154c-1.246,6.431,3.711,12.379,10.201,12.379c4.029,0,8.862,0,14.273,0v135.678
-                                c0,12.396,10.049,22.446,22.446,22.446c12.397,0,22.446-10.049,22.446-22.446v-135.68c3.227,0,6.465,0,9.692,0v135.68
-                                c0,12.396,10.049,22.446,22.446,22.446c12.397,0,22.446-10.049,22.446-22.446v-135.68c5.411,0,10.245,0,14.273,0
-                                c6.522,0,11.446-5.952,10.201-12.379c-28.737-148.369-25.57-131.138-26.55-139.154c11.593,33.211,31.602,90.284,32.691,93.389
-                                c3.421,9.756,14.101,14.878,23.84,11.462C509.227,283.27,514.359,272.597,510.941,262.849z"/>
-                              <circle cx="395.283" cy="59.265" r="38.767"/>
-                              <path d="M239.761,43.925c-7.969,0-14.43,6.46-14.43,14.43v395.282c0,7.969,6.46,14.429,14.43,14.429
-                                c7.97,0,14.43-6.459,14.43-14.429V58.355C254.191,50.385,247.73,43.925,239.761,43.925z"/>
-                            </symbol>
-                    			</defs>
-                    		</svg>
-                        
-                        <div :class="['mall', {'show-content': selectedStore != null}]" v-if="!loading">
-                          <!--tooltip for desktop-->
-                          <div id="tooltip" v-if="selectedLevel != -1 && !isMobileDevice" class="hidden" v-bind:style="{left: `${tooltipPosX}px`, top:`${tooltipPosY}px`}">
-                            <div class="title">{{tooltipTitle}}</div>
-                          </div>
-                          <!--end tooltip-->
-                          
-                          <!--map -->
-                          <div :class="['levels', {'selected': selectedLevel != -1}]">
-                            <div v-for="(item, index) in floors" :class="['level level-' + index, { 'level-current': selectedLevel == index }, {'move-down': selectedLevel > index}, {'move-up': selectedLevel < index}]" :key="item.name" @click="selectedLevel = index">
-                              <svg class="map" :viewBox="floors[index].viewBox" v-html="floors[index].outerHTML" width="100%" height="100%" preserveAspectRatio="xMinYMid meet" v-finger:multipoint-start="onMultipointStart" v-finger:multipoint-end="onMultipointEnd" v-finger:touch-move="onTouchMove" v-finger:touch-end="onTouchEnd" v-finger:pinch="onPinch" v-finger:press-move="onPan" v-finger:rotate="onRotate"></svg>
-                            </div>
-                          </div>
-                          <!-- end map -->
-                        </div>
-                    
-                        <!-- details content box -->
-                        <section class="content-box" v-if="selectedStore != null && !loading">
-                          <button class="btn close-btn" @click="selectedStore = null"><svg class="icon"><use xlink:href="#icon-cross"></use></svg></button>
-                          <div class="content-wrap">  
-                            <div class="row">
-                              <div class="col-xs-3 p-2" v-if="selectedStore.store_front_url_abs.indexOf('missing') < 0">
-                                <img :src="selectedStore.store_front_url_abs"/>
-                              </div>
-                              <div class="col-xs-9 p-2 flex">
-                                <div class="info-wrap">
-                                  <h5><strong>{{selectedStore.name}}</strong></h5>
-                                  <h6><i>Level {{selectedStore.level}}</i></h6>
-                                  <div class="btn-group mr-1" role="group" v-if="selectedStore.phone.length != 0">
-                                    <a :class="['btn btn-secondary', {'btn-sm': isMobileDevice}]" :href="`tel:${selectedStore.phone}`" role="button"><i class="fa fa-phone"></i> Call</a>
-                                  </div>
-                                  <div class="btn-group mr-1" role="group">
-                                    <a role="button" :class="['btn btn-secondary', {'btn-sm': isMobileDevice}]" :href="`/stores/${selectedStore.slug}`"><i class="fa fa-info"></i> Details</a>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <!-- <div class="content-subtitle">
-                              <div class="btn-wrap">
-                                <div class="btn-group mr-2" role="group" v-if="selectedStore.phone.length != 0">
-                                  <a class="btn btn-secondary" :href="`tel:${selectedStore.phone}`" role="button"><i class="fa fa-phone"></i> Call Store</a>
-                                </div>
-                                <div class="btn-group mr-2" role="group">
-                                  <a role="button" class="btn btn-secondary" :href="`/stores/${selectedStore.slug}`"><i class="fa fa-info"></i> View Details</a>
-                                </div>
-                              </div>
-                            </div> -->
-                          </div>
-                        </section>
-                        <!-- end details content box -->
-                    
-                        <!-- directory listing -->
-                        <aside class="directory-list" v-if="!loading">
-                          <div class="search-section">
-                            <input class="search-input" placeholder="Search store..." v-$model="search" @focus="showDirectory = true" ref="searchInput" />
-                            <button class="search-icon btn"><i class="fa fa-search" v-if="!showDirectory"></i></button>
-                            <button class="arrow-btn btn" type="reset" v-if="showDirectory" @click="showDirectory = false; clearSearch()"><i class="fa fa-arrow-left"></i></button>
-                            <button class="reset-btn btn" type="reset" v-if="search.length > 0" @click="clearSearch()"><i class="fa fa-close"></i></button>
-                          </div>
-                          <div :class="['list-section', {'close': isMobileDevice && !showDirectory}]" ref="listSection">
-                            <!-- <button class="btn close-btn" @click="showDirectory = false" v-if="isMobileDevice"><svg class="icon"><use xlink:href="#icon-cross"></use></svg></button> -->
-                            <!-- <div class="amenities">
-                              <div class="form-check form-check-inline">
-                                <label for="washrooms">Washrooms:</label>
-                                <toggle-button v-model="toggleWashrooms" :labels="true" :sync="true" name="washrooms"/>
-                              </div>
-                              <div class="form-check form-check-inline">
-                                <label for="elevators">Elevators:</label>
-                                <toggle-button v-model="toggleElevators" :labels="true" :sync="true" name="elevators"/>
-                              </div>
-                              <div class="form-check form-check-inline">
-                                <label for="escalators">Escalators:</label>
-                                <toggle-button v-model="toggleEscalators" :labels="true" :sync="true" name="escalators"/>
-                              </div>
-                            </div>
-                            <hr/> -->
-                            <!-- <div class="toggle-menu" v-if="filteredList.length > 0">
-                              <a v-on:click="alphabetical = !alphabetical" v-if="!alphabetical">Switch to Alphabetical <i class="fa fa-angle-right"></i></a>
-                              <a v-on:click="alphabetical = !alphabetical" v-if="alphabetical">Switch to Categories <i class="fa fa-angle-right"></i></a>
-                            </div> -->
-                            <div class="list-wrapper">
-                              <div v-for="(stores, index) in directoryListing" :key="index">
-                                <h6 class="list-header">{{index}}</h6>
-                                <ul id="#storelist" class="list">
-                                  <li :class="['list-item', {'active': selectedStore == item}]" v-for="item in stores" :key="item.id" :id="[`item-${item.id}`]" @click="storeClicked(item, false)"><a :class="['list-link']">{{item.name}}</a><br/><span v-if="item.z_coordinate > 0">Level {{item.z_coordinate}}</span></li>
-                                </ul>
-                              </div>
-                              <div class="no-results" v-if="filteredList.length == 0">
-                                <p>No results for <i><strong>{{search}}</strong></i></p>
-                              </div>
-                            </div>
-                          </div>
-                        </aside>
-                        <!-- end directory listing -->
-                    
-                        <!-- levels control -->
-                        <b-form-group :class="['levels-toolbar', {'hidden': isMobileDevice && showDirectory, 'move': selectedStore != null}]" v-if="!loading">
-                          <b-form-radio-group buttons stacked v-model="selectedLevel" :options="options" name="radioBtnStacked"/>
-                        </b-form-group>
-                        <!-- end levels control -->
-                    
-                        <!-- amenities control -->
-                        <b-form-group :class="['amenities-toolbar', {'hidden': isMobileDevice && showDirectory, 'move': selectedStore != null}]" v-if="!loading">
-                          <b-form-checkbox-group buttons stacked v-model="selectedAmenities" :options="amenities" name="radioBtnStacked"/>
-                        </b-form-group>
-                        <!-- end amenities control -->
-                    
-                      </div>  
+                    <div id="mapsvg_store_detail"></div>  
                 </div>
             </div>
             
-            <!--<div class="col-md-4 hidden_phone">-->
-            <!--    <a id="store_scroll_up" href="#" class="store_list_navigation">Scroll Up</a>-->
-            <!--    <a id="store_scroll_down" href="#" class="store_list_navigation">Scroll Down</a>-->
-            <!--    <p class='category_header'>Find Store</p>-->
-            <!--    <div id="stores_container">-->
-            <!--        <script id="stores_template" type="x-tmpl-mustache/text">-->
-            <!--            <h5 class="category_name"><a class="map_pin_a" href="#" data-value='{{svgmap_region}}/{{slug}}'>{{name}}</a></h5>-->
-            <!--        </script>-->
-            <!--    </div>-->
-            <!--</div> -->
+            <div class="col-md-4 hidden_phone">
+                <a id="store_scroll_up" href="#" class="store_list_navigation">Scroll Up</a>
+                <a id="store_scroll_down" href="#" class="store_list_navigation">Scroll Down</a>
+                <p class='category_header'>Find Store</p>
+                <div id="stores_container">
+                    <script id="stores_template" type="x-tmpl-mustache/text">
+                        <h5 class="category_name"><a class="map_pin_a" href="#" data-value='{{svgmap_region}}/{{slug}}'>{{name}}</a></h5>
+                    </script>
+                </div>
+            </div> 
         </div>
     </div>
 </div>
