@@ -79,13 +79,7 @@
             }
         }
         loadMallDataCached(renderPageData);
-    });
-</script>
-<style>
-    html, iframe{
-        scroll-behavior: smooth;
-    }
-    window.addEventListener('message', function (e) {
+        window.addEventListener('message', function (e) {
         // message passed can be accessed in "data" attribute of the event object
         var scroll_height = e.data;
 
@@ -121,4 +115,11 @@
     //         window.scrollTo(0, $('#iFrame1').offset().top + offset - 300)
     //     }
     // })
+    });
+</script>
+<style>
+    html, iframe{
+        scroll-behavior: smooth;
+    }
+    
 </style>
