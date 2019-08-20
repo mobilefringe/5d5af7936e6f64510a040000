@@ -27,12 +27,7 @@
     <!--</div>-->
     <iframe src="https://mf-map.netlify.com/map/" frameborder="0" width="100%" height="100%" id="iFrame1"></iframe>
 </div>
-<style>
-    .mf-map {
-        height: calc(100% - 101px !important;
-        top: 101px !important;
-    }
-</style>
+
 <script>
     $(document).ready(function(e){
         init(e);
