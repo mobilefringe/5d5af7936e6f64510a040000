@@ -27,6 +27,12 @@
     <!--</div>-->
     <iframe src="https://mf-map.netlify.com/map/" frameborder="0" width="100%" height="100%" id="iFrame1"></iframe>
 </div>
+<style>
+  .mf-map {
+   height: calc(100% - #{$navbar-height} - #{$footer-height}) !important;
+  top: $navbar-height !important;
+ }
+</style>
 <script>
     $(document).ready(function(e){
         init(e);
