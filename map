@@ -81,3 +81,8 @@
         loadMallDataCached(renderPageData);
     });
 </script>
+<style>
+    html, iframe{
+        scroll-behavior: smooth;
+    }
+</style>
