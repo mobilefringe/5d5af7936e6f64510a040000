@@ -81,9 +81,3 @@
         loadMallDataCached(renderPageData);
     });
 </script>
-<style>
-    .mf-map {
-        height: calc(100% - 101px !important;
-        top: 101px !important;
-    }
-</style>
