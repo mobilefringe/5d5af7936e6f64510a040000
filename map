@@ -79,10 +79,4 @@
         }
         loadMallDataCached(renderPageData);
     });
-    
-    
-    
-    
-    
-    
 </script>
